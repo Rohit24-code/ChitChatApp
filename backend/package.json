@@ -9,18 +9,17 @@
     "build": "bun install"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/express": "^5.0.6"
   },
   "peerDependencies": {
     "typescript": "^5"
   },
   "dependencies": {
     "@clerk/express": "^2.0.8",
-    "@types/express": "^5.0.6",
     "cors": "^2.8.6",
     "express": "^5.2.1",
     "mongoose": "^9.3.3",
-    "save-dev": "^0.0.1-security",
     "socket.io": "^4.8.3"
   }
 }
