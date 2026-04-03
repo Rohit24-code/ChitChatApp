@@ -18,7 +18,7 @@ export async function getMe(
     res.status(200).json(user);
   } catch (error) {
     res.status(500);
-    next();
+    next(error);
   }
 }
 
@@ -45,8 +45,8 @@ export async function authCallback(
         clerkId,
         name: clerkUser.firstName
           ? `${clerkUser.firstName} ${clerkUser.lastName || ""}`.trim()
-          : clerkUser.emailAddresses[0]?.emailAddress?.split("@")[0],
-        email: clerkUser.emailAddresses[0]?.emailAddress,
+          : clerkUser?.emailAddresses[0]?.emailAddress?.split("@")[0],
+        email: clerkUser?.emailAddresses[0]?.emailAddress,
         avatar: clerkUser.imageUrl,
       });
     }

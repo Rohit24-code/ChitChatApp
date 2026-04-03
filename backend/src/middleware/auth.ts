@@ -13,11 +13,11 @@ export const protectRoute = [
     try {
       const { userId: clerkId } = getAuth(req);
 
-      if (!clerkId) {
-        return res
-          .status(401)
-          .json({ message: "Unauthorized - invalid token" });
-      }
+      //   if (!clerkId) {
+      //     return res
+      //       .status(401)
+      //       .json({ message: "Unauthorized - invalid token" });
+      //   }
 
       const user = await User.findOne({ clerkId });
 
@@ -27,7 +27,7 @@ export const protectRoute = [
       next();
     } catch (error) {
       res.status(500);
-      console.log("Error in protected route middlware", error);
+      next(error);
     }
   },
 ];
